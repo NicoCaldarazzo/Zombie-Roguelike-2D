@@ -1,16 +1,25 @@
-using UnityEngine;
+using System;
 
-public class GameEvents : MonoBehaviour
+public static class GameEvents
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static event Action<int> OnZombieKilled;
+    public static event Action<int, int> OnWaveCleared;
+    public static event Action OnPlayerDeath;
+    
+    public static void ZombieKilled(int points)
     {
-        
+        OnZombieKilled?.Invoke(points);
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void WaveCleared(int wave, int spawnCount)
     {
-        
+        OnWaveCleared?.Invoke(wave, spawnCount);
     }
+
+
+    public static void PlayerDeath()
+    {
+        OnPlayerDeath?.Invoke();
+    }
+
 }
