@@ -6,18 +6,29 @@ public class Bullet : MonoBehaviour
     private float damage;
     private float speed;
     private float range;
+    private float bulletSize;
     private Rigidbody2D rb;
-    private Vector3 direction;
+    private Vector2 direction;
+    private CircleCollider2D col;
 
-    public void Initialize(float damage, float speed, float range, Vector3 direction)
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<CircleCollider2D>();
+    }
+    public void Initialize(float damage, float speed, float range, Vector2 direction, float bulletSize)
+    {
         bulletStartPos = transform.position;
         this.direction = direction;
         this.damage = damage;
         this.speed = speed;
         this.range = range;
+        
+        //Bullet size modifier
+        Vector3 originalScale = transform.localScale;
+        transform.localScale = new Vector3 (originalScale.x * bulletSize, originalScale.y * bulletSize, 1f);
         rb.linearVelocity = direction * speed;
+        col.radius *= bulletSize;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 

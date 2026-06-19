@@ -14,7 +14,7 @@ public class PlayerFollow : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         transform.position = Vector3.Lerp(transform.position, new Vector3(playerPosition.position.x, playerPosition.position.y, cameraZ),followSpeed * Time.deltaTime);
     }

@@ -7,6 +7,7 @@ public class ZombieSpawner : MonoBehaviour
 
     [SerializeField] private float spawnInterval = 2f;
 
+    private bool isPaused = false;
     private Camera mainCamera;
     private float camHeight;
     private float camWidth;
@@ -24,11 +25,24 @@ public class ZombieSpawner : MonoBehaviour
     void OnEnable()
     {
         GameEvents.OnWaveCleared += SpawnNextWave;
+        GameEvents.OnUpgradeScreenOpened += PauseSpawning;
+        GameEvents.OnUpgradeScreenClosed += ResumeSpawning;
     }
 
     void OnDisable()
     {
         GameEvents.OnWaveCleared -= SpawnNextWave;
+        GameEvents.OnUpgradeScreenOpened -= PauseSpawning;
+        GameEvents.OnUpgradeScreenClosed -= ResumeSpawning;
+    }
+
+    private void PauseSpawning()
+    {
+        isPaused = true;
+    }
+    private void ResumeSpawning()
+    {
+        isPaused = false;
     }
 
     private void SpawnNextWave(int wave, int spawnCount)
@@ -40,6 +54,8 @@ public class ZombieSpawner : MonoBehaviour
     {
         for (int i = 0; i < spawnCount; i++)
         {
+            while (isPaused)
+                yield return null;
             SpawnZombie();
             yield return new WaitForSeconds(spawnInterval);
         }

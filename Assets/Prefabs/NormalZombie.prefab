@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 5204597553969017913}
   - component: {fileID: 532980287633184073}
   - component: {fileID: 8577013661801926622}
-  - component: {fileID: 3034143240174336548}
+  - component: {fileID: 8816873873237010779}
+  - component: {fileID: 1715797800479083866}
   m_Layer: 0
   m_Name: NormalZombie
   m_TagString: Zombie
@@ -29,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 536079784889599413}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.04, y: 1.51, z: 0}
-  m_LocalScale: {x: 12.54, y: 12.54, z: 12.54}
+  m_LocalPosition: {x: 8.049, y: 1.612, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,12 +85,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -1948926392872995930, guid: 5ff328f5790505d44890a74c0faf7d61, type: 3}
+  m_Sprite: {fileID: 2857686649192414873, guid: 76f4ee007d33eaf48882e7f1f1c904f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.24, y: 0.31}
+  m_Size: {x: 1.6, y: 1.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -155,19 +156,19 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.029010631, y: -0.0016577542}
+  m_Offset: {x: -0.077815056, y: 0.0027932525}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.24, y: 0.31}
-    newSize: {x: 0.24, y: 0.31}
+    oldSize: {x: 1.6, y: 1.6}
+    newSize: {x: 1.6, y: 1.6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.14256664, y: 0.31262046}
+  m_Size: {x: 0.77462006, y: 1.6212379}
   m_EdgeRadius: 0
---- !u!114 &3034143240174336548
+--- !u!114 &8816873873237010779
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,11 +177,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 536079784889599413}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34fb8d3dbe210be49b60db735e2463eb, type: 3}
+  m_Script: {fileID: 11500000, guid: aa4796dfd56b8c843997ba2e7d3c7ac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieTracking
-  zombieSpeed: 5
+  zombieSpeed: 2
   zombiehealth: 100
   pointValue: 1
-  attackCooldown: 5
-  attackDamage: 25
+  attackCooldown: 1
+  attackDamage: 20
+--- !u!114 &1715797800479083866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536079784889599413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff86fe46c1ab994f95dab93d151b93f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NormalZombieVisuals
+  zombieLeftRight: {fileID: 2857686649192414873, guid: 76f4ee007d33eaf48882e7f1f1c904f2, type: 3}
+  zombieUp: {fileID: -2129849177660997787, guid: dd5718383432f354d99e6be39434d88d, type: 3}
+  zombieDown: {fileID: 6851504276394136648, guid: 911f2e4965ffb344dace2442f3a78ddf, type: 3}

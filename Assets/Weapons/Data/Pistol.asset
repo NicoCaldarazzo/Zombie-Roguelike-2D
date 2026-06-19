@@ -20,4 +20,4 @@ MonoBehaviour:
   ammoCapacity: 12
   reloadTime: 1.5
   bulletPrefab: {fileID: 3242311337229844178, guid: a2277b62cdb0b0040a9574c2cc1f0052, type: 3}
-  weaponSprite: {fileID: 0}
+  weaponSprite: {fileID: -7758960972697950975, guid: 86c28f14a3c24624590983fbcf0d4bd7, type: 3}

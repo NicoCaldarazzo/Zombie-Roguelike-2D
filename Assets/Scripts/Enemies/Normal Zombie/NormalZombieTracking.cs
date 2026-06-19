@@ -9,10 +9,10 @@ public class ZombieTracking : MonoBehaviour
     [SerializeField] private float attackCooldown = 1f;
     [SerializeField] private float attackDamage = 0.5f;
     private bool isAttacking = false;
-
     private Rigidbody2D rb;
     private Transform player;
     private PlayerHealth playerHealth;
+    public Vector2 Direction{ get; private set;}
 
     void Awake()
     {
@@ -25,8 +25,9 @@ public class ZombieTracking : MonoBehaviour
     {
         if (player != null && !isAttacking)
         {
-            Vector2 direction = (player.position - transform.position).normalized;
-            rb.linearVelocity = direction * zombieSpeed;
+            Direction = (player.position - transform.position).normalized;
+            
+            rb.linearVelocity = Direction * zombieSpeed;
         }
     }
 
